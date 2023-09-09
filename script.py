@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import struct
 import re
 from pwnlib.asm import disasm, asm

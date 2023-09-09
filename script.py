@@ -1,14 +1,19 @@
 #!/usr/bin/python3
 
+import sys
 import struct
 import re
 from pwnlib.asm import disasm, asm
 import pprint
 
-asm_file = "DATA/fingerprint.goodix.default.asm"
-functions_file = "DATA/fingerprint.goodix.default_f"
+asm_file = sys.argv[1]
+functions_file = sys.argv[2]
+output_file = sys.argv[3]
+
+#asm_file = "DATA/fingerprint.goodix.default.asm"
+#functions_file = "DATA/fingerprint.goodix.default_f"
 truth_file = None # "libfp_client5118m_new.asm"
-output_file = "WORKING/fingerprint.goodix.default.so"
+#output_file = "WORKING/fingerprint.goodix.default.so"
 
 # Helpers for patching
 def unpack_instr(s):

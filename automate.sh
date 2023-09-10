@@ -3,10 +3,10 @@
 rm -rf tmp output
 mkdir tmp output
 
-for f in `bash -c 'cd input/ && ls *.so'`; do
+for f in `ls input/`; do
     # 1. Ghidra work
-    [ -f "input/${f}.c" ] || continue
-    grep -B10 "Parcel aPStack" input/${f}.c | grep "//" > tmp/${f}_f || continue
+    [ -f "input/c/${f}.c" ] || continue
+    grep -B10 "Parcel aPStack" input/c/${f}.c | grep "//" > tmp/${f}_f || continue
     sed -i '/WARNING:/d' tmp/${f}_f
 
     # 2. `objdump`

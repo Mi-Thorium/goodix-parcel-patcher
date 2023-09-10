@@ -10,7 +10,7 @@ for f in `bash -c 'cd input/ && ls *.so'`; do
     sed -i '/WARNING:/d' tmp/${f}_f
 
     # 2. `objdump`
-    aarch64-linux-android-objdump -d input/${f} > tmp/${f}.asm || continue
+    aarch64-linux-gnu-objdump -d input/${f} > tmp/${f}.asm || continue
 
     # 3. Execute the script (arg1: step 2, arg2: step 1, arg3: output)
     cp input/${f} output/${f}
